@@ -1,6 +1,11 @@
 const express = require('express');
-//There is no function that is exported from passport.js but we need the whole file.
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+//There is no function that is exported from passport.js but we need the whole passport.js file.
+require('./models/User');
 require('./services/passport');
+//mongoose connecting remotely hosted mongoDB on MLab to Node/Express server
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
